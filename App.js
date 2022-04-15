@@ -33,61 +33,46 @@ export default function App() {
         setPeople(newList)
     };
 
-    return ( <
-        View style = { styles.container } >
-        <
-        Text style = { styles.header } >
-        To do list < /Text>  <
-            View style = { styles.item } >
-            <
-            View >
-            <
-            TextInput style = { styles.input }
-        placeholder = "Title"
-        onChangeText = {
-            (val) => { setTitle(val) }
-        }
-        />  <
-        TextInput style = { styles.input }
-        placeholder = "Description"
-        onChangeText = {
-            (val) => { setDescriere(val) }
-        }
-        />  <
-        /View>  <
-        View style = { styles.button } >
-        <
-        Button title = "+"
-        onPress = { AddElement }
-        />  <
-        /View>  <
-        /View>  <
-        FlatList data = { people }
-        renderItem = {
-            ({ item }) => ( <
-                View style = { styles.item } >
-                <
-                View >
-                <
-                Text style = { styles.input } > { item.title } < /Text>  <
-                Text style = { styles.input } > { item.descriere } < /Text>  <
-                /View>
+    return ( <View style = { styles.container }>
+        <Text style = { styles.header } > To do list </Text> 
+        <View style = { styles.item }>
+          <View>
+            <TextInput style = { styles.input }
+                        placeholder = "Title"
+                        onChangeText = {
+                                    (val) => { setTitle(val) }
+                                       }/> 
+            <TextInput style = { styles.input }
+                         placeholder = "Description"
+                         onChangeText = {
+                             (val) => { setDescriere(val) }
+                                  }/>  
+            </View>  
+            <View style = { styles.button }>
+            <Button title = "+"
+                    onPress = { AddElement }/> 
+            </View>  
+        </View>  
+            <FlatList data = { people }
+                 renderItem = {
+                     ({ item }) => ( <View style = { styles.item }>
+                                        <View>
+                                            <Text style = { styles.input } > { item.title } </Text>  
+                                            <Text style = { styles.input } > { item.descriere } </Text> 
+                                        </View>
 
-                <
-                View style = { styles.button } >
-                <
-                Button title = "-"
-                color = "red"
-                onPress = {
-                    () => RemoveElement(item.key)
-                }
-                />  <
-                /View>  <
-                /View>
-            )
-        }
-        />  <
-        /View>
+                                        <View style = { styles.button }>
+                                            <Button title = "-"
+                                            color = "red"
+                                            onPress = {
+                                                () => RemoveElement(item.key)
+                                            }
+                                            />
+                                        </View>  
+                                     </View>
+                                )
+                            }/>  
+        </View>
     );
 }
 
